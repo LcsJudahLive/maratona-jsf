@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <f:metadata>
+        <f:viewAction action="#{testeConversationBean.init}" />
+    </f:metadata>
+    <h:body>
+        <h:form>
+            <h:outputText value="#{testeApplicationBean.list}"/><br/>
+            <h:outputText value="#{testeConversationBean.personagemSelecionado}"/><br/>
+            <h:commandButton value="selecionarPersonagem" actionListener="#{testeConversationBean.selecionarPersonagem()}"/>
+
+            <h:commandButton value="selecionarPersonagem Forward" actionListener="#{testeConversationBean.selecionarPersonagem()}" action="conversation2"/>
+            <h:commandButton value="selecionarPersonagem Redirect" actionListener="#{testeConversationBean.selecionarPersonagem()}" action="conversation2s?faces-redirect=true"/>
+            <h:link outcome="conversation2" value="vai para conversation2" rendered="#{!testeConversationBean.conversation.transient}">
+                <f:param name="cid" value="#{testeConversationBean.conversation.id}"/>
+            </h:link>
+            <h:commandButton value="finalizar conversation scoped" actionListener="#{testeConversationBean.endConversation()}"/>
+
+        </h:form>
+    </h:body>
+</h:head>
+</html>
