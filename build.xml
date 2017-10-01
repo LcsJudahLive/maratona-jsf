@@ -3,7 +3,7 @@
 default="bkp"
 basedir=".">
 <property name="projeto" value="${ant.project.name}" />
-<property name="bkp-dir" value="/servidor-bkp/fontes/" />
+<property name="bkp-dir" value="/home/lucas/" />
 <property name="diretorio-para-zipar" value="src" />
 <target name="clean">
 <delete file="${projeto}.zip" />
